@@ -1,0 +1,36 @@
+{
+  "name": "starbucks-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byeongco/starbucks-clone.git"
+  },
+  "author": "annahxxl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/byeongco/starbucks-clone/issues"
+  },
+  "homepage": "https://github.com/byeongco/starbucks-clone#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.4.1",
+    "mongoose": "^5.12.3",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.14",
+    "@babel/node": "^7.13.13",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.13.12",
+    "babel-loader": "^8.2.2",
+    "nodemon": "^2.0.7"
+  }
+}
