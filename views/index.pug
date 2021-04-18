@@ -1,6 +1,83 @@
-html
-  head
-    link(rel="stylesheet", href="/public/css/index.css")
-    script(src="/public/js/index.js") 
-  body 
-    p 홈입니다.
+extends layout
+
+block content
+  div.badge
+    img(src="../public/images/badge.png")
+  section.container__top
+    div.container__top__slogan
+      img(src="../public/images/slogan-summer.png")
+      button.container__top__btn 자세히 보기
+    div.container__top__coldbrew
+      img(src="../public/images/coldbrew-summer-title.png")
+      img(src="../public/images/coldbrew-summer.png")
+    div.container__top__blended
+      img(src="../public/images/blended-summer.png")
+      img(src="../public/images/blended-summer-title.png")
+    div.container__top__ade
+      img(src="../public/images/ade-summer-title.png")
+      img(src="../public/images/ade-summer.png")
+  section.container__notice
+    div.container__notice__left
+      span.container__notice__left--title 공지사항
+      ul.container__notice__left__items
+        li 시스템 개선 및 점검 안내
+      //li 쿠폰 발행 지연 안내
+      //li 사이렌 오더 기본 음료 설정 변경 안내
+      img.container__notice__left--btn(src="../public/images/btn-plus.png")
+    div.container__notice__right
+      span.container__notice__right--title 스타벅스 프로모션
+      img.container__notice__right--btn(src="../public/images/btn-down.png")
+  section.container__reward
+    div.container__reward__wrapper
+      div
+        img(src="../public/images/rewards-logo.png")
+      div.container__reward__content
+        div.container__reward__top
+          div
+            h2
+              | 스타벅스만의 특별한 혜택, <b>스타벅스 리워드</b>
+            p(style="font-size: 16px")
+              | <b>스타벅스 회원이세요?</b> 로그인을 통해 나만의 리워드를 확인해보세요.<br>
+              | <b>스타벅스 회원이 아니세요?</b> 가입을 통해 리워드 혜택을 즐기세요.
+          button.container__reward__btn--signin 회원가입
+          button.container__reward__btn--login 로그인
+        div.container__reward__bottom
+          span(style="font-size: 14px")
+            | 회원 가입 후, 스타벅스 e-Gift Card를 <b>"나에게 선물하기"로 구매하시고, 편리하게 등록하세요!</b><br>
+            | 카드를 등록하여 스타벅스 리워드 회원이 되신 후, 첫 구매를 하시면 무료 음료쿠폰을 드립니다!
+          button.container__reward__btn--egift e-Gift Card 선물하기
+  section.container__bean
+    div.container__bean__wrapper
+      img.container__bean__wrapper__img(src="../public/images/bean-summer.png")
+      div.container__bean__content
+        img(src="../public/images/bean-summer-title.png")
+        button 자세히 보기
+  section.container__brazil
+    div.container__brazil__wrapper
+      img(src="../public/images/brazil-title.png")
+      button 자세히 보기
+  section.container__fav
+    div.container__fav__wrapper
+      div.container__fav__left
+        img(src="../public/images/fav-title-01.png")
+        img(src="../public/images/fav-title-02.png" style="position: relative; top: 30px; right: 104px")
+        button 자세히 보기
+      div.container__fav__right
+        img(src="../public/images/fav-items.png")
+  section.container__reserve
+    div.container__reserve__wrapper
+      div.container__reserve__left
+        img(src="../public/images/reserve-visual.png")
+      div.container__reserve__right
+        img(src="../public/images/reserve-title.png" style="position: relative; left: 50px; bottom: -100px;")
+        img(src="../public/images/reserve-btn.png" style="position: relative; left: 50px; bottom: -200px;")
+  section.container__store
+    div.container__store__wrapper
+      div.container__store__left
+        img(src="../public/images/store-img-01.png")
+        img(src="../public/images/store-img-02.png" style="position: relative; left: 200px; bottom: 150px")
+      div.container__store__right
+        img(src="../public/images/store-title-01.png" style="margin-bottom: 20px;")
+        img(src="../public/images/store-title-02.png")
+        button 매장 찾기
+      img(src="../public/images/store-img-03.png" style="width: 230px; height:102px; position: relative; bottom: -298px")
