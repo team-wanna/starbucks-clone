@@ -1,0 +1,135 @@
+extends layout 
+
+block content
+  script(src="/public/js/join.js", defer) 
+  .join-form-container
+    .join-form-container__title 회원가입
+    form.join-form-container__content(action="/user/join", method="POST")
+      .content
+        .content__guide-block
+          img.guide-block__img(src="/public/images/sally.PNG", alt="sally")
+          p.guide-block__txt 회원정보를 입력해 주세요.
+        .content__input
+          input.input__item(type="text", placeholder="아이디", name="id", required)
+        .content__input  
+          input.input__item(type="password", placeholder="비밀번호", name="pwd", required)
+        .content__input--last
+          input.input__item(type="password", placeholder="비밀번호 확인", name="pwd2", required)
+      .content
+        .content__input
+          .input__title 이름
+            span (필수)
+          .input__item--box
+            input.input__item(type="text", placeholder="이름", name="name", required)
+            .input__gender
+              .input__gender--male.pointer 남
+              .input__gender--female.pointer 여
+              input.input__gender--value(type="hidden", name="gender", value="male")
+        .content__input
+          .input__title 생년월일
+            span (필수)
+          .input__birth
+            select.input__item.pointer(name='year')
+              option(value='') --- 선택 ---
+              option(value='1990') 1990
+              option(value='1991') 1991
+              option(value='1992') 1992
+              option(value='1993') 1993
+              option(value='1994') 1994
+              option(value='1995') 1995
+              option(value='1996') 1996
+              option(value='1997') 1997
+              option(value='1998') 1998
+              option(value='1999') 1999
+              option(value='2000') 2000
+            select.input__item.pointer(name='month')
+              option(value='') --- 선택 ---
+              option(value='1') 1
+              option(value='2') 2
+              option(value='3') 3
+              option(value='4') 4
+              option(value='5') 5
+              option(value='6') 6
+              option(value='7') 7
+              option(value='8') 8
+              option(value='9') 9
+              option(value='10') 10
+              option(value='11') 11
+              option(value='12') 12
+            select.input__item.pointer(name='day')
+              option(value='') --- 선택 ---
+              option(value='1') 1
+              option(value='2') 2
+              option(value='3') 3
+              option(value='4') 4
+              option(value='5') 5
+              option(value='6') 6
+              option(value='7') 7
+              option(value='8') 8
+              option(value='9') 9
+              option(value='10') 10
+              option(value='11') 11
+              option(value='12') 12
+              option(value='13') 13
+              option(value='14') 14
+              option(value='15') 15
+              option(value='16') 16
+              option(value='17') 17
+              option(value='18') 18
+              option(value='19') 19
+              option(value='20') 20
+              option(value='21') 21
+              option(value='22') 22
+              option(value='23') 23
+              option(value='24') 24
+              option(value='25') 25
+              option(value='26') 26
+              option(value='27') 27
+              option(value='28') 28
+              option(value='29') 29
+              option(value='30') 30
+              option(value='31') 31
+            select.input__item.pointer(name='calendar')
+              option(value='') --- 선택 ---
+              option(value='solar') 양력
+              option(value='lunar') 음력
+          .input__txt
+            p 회원가입완료 후 스타벅스 카드를 등록하시면 생일 무료음료 쿠폰이 발행됩니다.
+        .content__input
+          .input__title 휴대폰
+            span (필수)
+            i.fas.fa-exclamation-circle
+          input.input__item(type="text", placeholder="000-0000-0000", name="phone", required)
+        .content__input--last
+          .input__title 메일
+            span (필수)
+          input.input__item(type="text", placeholder="E-mail을 입력하세요.", name="email", required)
+      .content
+        .content__nickname-block
+          img.nickname-block__img(src="/public/images/nickname-sally.jpg", alt="nickname-sally")
+          p.nickname-block__txt
+            | 주문하신 제품을 찾으실 때,
+            br
+            | 파트너가 등록하신 닉네임을 불러드립니다.
+        .content__input--last
+          .input__title 닉네임 (선택)
+          .agree-container
+            .agree
+              .agree__title 선택적 개인정보 수집동의 및 이용약관
+              input.agree__checkbox.pointer(type="checkbox")
+            .agree__content
+              p 본인은 (주)스타벅스커피코리아(이하 “회사”라 합니다)가 제공하는 콜 마이 네임 서비스(이하 “서비스”라 합니다)를 이용하기 위해, 다음과 같이 “회사”가 본인의 개인정보를 수집·이용하는 것에 동의합니다.
+              br
+              p ※ 귀하께서는 개인정보 수집·이용에 대한 동의를 거부하실 수 있으나, 동의를 거부하실 경우 서비스 이용을 하실 수 없습니다.
+              br
+              br
+              br
+              br
+              br
+          .input__nickname
+            .input__block 닉네임 입력을 위해 약관에 동의해 주세요.
+            input.input__item(type="text", placeholder="한글 6자리 이내로 입력하세요.")
+      .content__warn
+        p ＊ 선택항목은 입력하지 않거나 동의하지 않아도 회원 가입이 가능합니다.
+      .content__btn
+        button.pointer(type="submit") 가입하기

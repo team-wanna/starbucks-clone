@@ -1,0 +1,194 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.join-form-container {
+  max-width: 570px;
+  margin: auto;
+  padding: 70px 0px;
+}
+
+.join-form-container__title {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.join-form-container .content {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin-bottom: 30px;
+}
+
+.join-form-container .content__guide-block {
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.join-form-container .guide-block__img {
+  width: 265px;
+}
+
+.join-form-container .guide-block__txt {
+  color: #777;
+  font-size: 18px;
+  padding: 30px 20px;
+}
+
+.join-form-container .content__input {
+  padding: 20px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.join-form-container .content__input--last {
+  padding: 20px 20px;
+}
+
+.join-form-container .input__item {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  width: 100%;
+  padding: 15px;
+}
+
+.join-form-container .pointer:hover {
+  cursor: pointer;
+}
+
+.join-form-container .input__title {
+  margin-bottom: 10px;
+}
+
+.join-form-container .input__title,
+.join-form-container .input__title span {
+  line-height: 1;
+}
+
+.join-form-container .input__title span {
+  color: #006241;
+}
+
+.join-form-container select.input__item {
+  width: 125px;
+}
+
+.input__item--box {
+  display: flex;
+}
+
+.input__gender {
+  width: 40%;
+  height: 100%;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin-left: 10px;
+  display: flex;
+}
+
+.input__gender div {
+  width: 100%;
+  height: 48px;
+  text-align: center;
+  padding: 12px;
+  color: #888;
+}
+
+.input__gender--male {
+  border-right: 1px solid #ddd;
+}
+
+.selected {
+  color: #444;
+  background-color: #f4f4f4;
+}
+
+.input__birth {
+  display: flex;
+  justify-content: space-between;
+}
+
+.join-form-container .input__txt {
+  margin-top: 15px;
+  color: #444;
+  /* 폰트 원래 16px */
+  font-size: 14px;
+}
+
+.nickname-block__img {
+  width: 100%;
+  height: 100%;
+}
+
+.nickname-block__txt {
+  padding: 10px 0px;
+  color: #666;
+  text-align: center;
+  background-color: #edebe7;
+}
+
+.agree-container {
+  padding: 20px 20px 30px;
+}
+
+.agree {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.agree__content {
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 20px 10px;
+  font-size: 14px;
+  height: 226px;
+  overflow: scroll;
+}
+
+.input__nickname {
+  width: 100%;
+  height: 48px;
+  position: relative;
+}
+
+.input__block {
+  padding: 15px;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+  color: #777;
+  font-size: 12px;
+  position: absolute;
+  z-index: 5;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.hidden {
+  display: none;
+}
+
+.join-form-container .content__warn {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  margin: 15px 0px;
+}
+
+.join-form-container .content__btn {
+  text-align: center;
+}
+
+.join-form-container .content__btn button {
+  background-color: #006633;
+  font-size: 24px;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  width: 530px;
+  height: 65px;
+}

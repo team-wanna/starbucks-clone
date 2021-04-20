@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  script(src="/public/js/login.js", defer) 
+  .bg-wrap
+    .login-form-container
+      .login-form-container__title 로그인
+      form.login-form-container__content(action="/user/login", method="POST")
+        .content
+          .content__greeting
+            span Welcome!
+            |  스타벅스커피 코리아에 오신 것을 환영합니다 
+          .content__input-container
+            .input
+              input.input__item(type="text", placeholder="아이디를 입력해 주세요.", name="id", required, id="id")
+              input.input__item(type="password", placeholder="비밀번호를 입력해 주세요.", name="pwd", required)
+              .input__remember
+                input.pointer(type="checkbox", name="rember", id="remember")
+                label.pointer(for="remember")  아이디 저장
+              .input__btn
+                button.pointer(type="submit") 로그인
+              .input__warn
+                | * 타 사이트와 비밀번호를 동일하게 사용할 경우 도용의 위험이 있으므로, 정기적인 비밀번호 변경을 해주시길 바랍니다.
+                br
+                | * 스타벅스 커피 코리아의 공식 홈페이지는 Internet Explorer 9.0 이상, Chrome, Firefox, Safari 브라우저에 최적화 되어있습니다.
+          .content__nav
+            ul
+              li
+                a(href="/user/join") 회원가입
+              li
+                a(href="#") 아이디 찾기
+              li
+                a.last(href="#") 비밀번호 찾기
