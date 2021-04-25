@@ -1,0 +1,144 @@
+body,
+ul {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+a {
+    font: normal 13px Avenir, Arial, georgia;
+}
+img {
+    vertical-align: top;
+    max-width: 100%;
+}
+header {
+    width: 100vw;
+    height: 120px;
+    top: 0;
+    text-align: center;
+}
+.header__inner {
+    z-index: 10;
+    width: 100%;
+    height: 120px;
+    position: fixed;
+    background: #f6f5ef;
+    border-bottom: 1px solid #e5e5e5;
+    border-top: 2px solid #000;
+}
+.header__content {
+    width: 60%;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+}
+.header__logo {
+    position: absolute;
+    left: 0;
+    top: 22px;
+}
+.header__util-nav {
+    height: 35px;
+    position: absolute;
+    right: 80px;
+    top: 10px;
+}
+.header__util-nav__item {
+    display: inline-block;
+    padding: 0 10px 0 10px;
+    color: #555;
+}
+.header__util-nav__item-btn {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-search {
+    position: relative;
+    top: 8px;
+}
+.header__gnb-nav {
+    height: 66px;
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+}
+.header__gnb_nav__item {
+    display: inline-block;
+    height: 100%;
+    padding: 10px 20px 0 20px;
+    color: #333;
+}
+
+footer {
+    padding: 35px 0 35px 0;
+    background: #2c2a29;
+    text-align: center;
+}
+.footer__menu {
+    display: inline-block;
+}
+.footer__menu__item {
+    width: 220px;
+    float: left;
+    font-size: 12px;
+    color: #fff;
+    list-style: none;
+}
+.footer__menu__item--title {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.footer__award__container {
+    background: #282828;
+    margin-top: 40px;
+    height: 80px;
+}
+.footer__award__inner {
+    width: 90%;
+    height: 100%;
+    margin-top: 10px;
+    display: inline-block;
+}
+.footer__copyright {
+    padding-top: 30px;
+    font-size: 12px;
+    color: #cccccc;
+    line-height: 18px;
+}
+.footer__copyright--rule {
+    border-right: 1px solid #393939;
+    padding: 0 10px;
+}
+.footer__copyright--privacy {
+    color: #00b050;
+    font-weight: bold;
+}
+.footer__copyright--btn {
+    display: inline-block;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    margin: 10px 2px 0 3px;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    color: #ffffff;
+}
+.footer__copyright__menu {
+    color: #999999;
+    padding: 25px 0 5px 0;
+}
+.footer__copyright__menu li {
+    display: inline-block;
+    margin: 0 7px;
+}
+.footer__copyright span {
+    color: #999999;
+}
