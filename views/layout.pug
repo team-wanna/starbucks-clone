@@ -2,7 +2,8 @@ doctype html
 html(len="ko")
   head
     link(rel="stylesheet", href=`/public/css/layout.css`)
-    block src
+    link(rel="stylesheet", href=`/public/css/${title}.css`)
+    script(src=`/public/js/${title}.js`, defer)
   body
     header
       div.header__inner
@@ -34,6 +35,208 @@ html(len="ko")
                 a STARTBUCKS REWARD
               li.header__gnb_nav__item
                 a WHAT'S NEW
+    .header__toggle__container
+      .header__toggle
+        ul
+          li 커피
+          li 스타벅스 원두
+          li 스타벅스 비아
+          li 스타벅스 오리가미
+        ul
+          li 나와 어울리는 커피
+        ul
+          li 스타벅스 리저브&#8482
+          li RESERVE MAGAZINE
+        ul
+          li 에스프레소 음료
+          li 도피오
+          li 에스프레소 마키아또
+          li 아메리카노
+          li 마키아또
+          li 카푸치노
+          li 라떼
+          li 모카
+          li 리스트레또 비안코
+        ul
+          li 최상의 커피를 즐기는 법
+          li 커피 프레소
+          li 푸어 오버
+          li 아이스 푸어 오버
+          li 커피 메이커
+          li 리저브를 매장에서 다양하게 즐기는 법
+        ul 
+          li 커피 이야기
+          li 스타벅스 로스트 스팩트럼
+          li 최상의 아라비카 원두
+          li 한 잔의 커피가 완성되기까지
+          li 클로버&reg 커피 추출 시스템
+          li 스타벅스 디카페인
+      .header__toggle__footer
+        p
+          .comment 나와 어울리는 커피 찾기
+          .desc 스타벅스가 여러분에게 어울리는 커피를 찾아드립니다.
+        p
+          .comment 최상의 커피를 즐기는 법
+          .desc 여러가지 방법을 통해 다양한 풍미의 커피를 즐겨보세요.
+    .header__toggle__container
+      .header__toggle
+        ul
+          li 음료
+          li 콜드 브루
+          li 브루드 커피
+          li 에스프레소
+          li 프라푸치노
+          li 블렌디드
+          li 스타벅스 피지오
+          li 티(티파니)
+          li 기타 제조 음료
+          li 스타벅스 주스(병음료)
+        ul
+          li 푸드
+          li 브레드
+          li 케이크
+          li 샌드위치 & 샐러드
+          li 따뜻한 푸드
+          li 과일 & 요거트
+          li 스낵 & 미니 디저트
+          li 아이스크림
+        ul
+          li 상품
+          li 머그
+          li 글라스
+          li 플라스틱 텀블러
+          li 스테인리스 텀블러
+          li 보온병
+          li 액세서리
+          li 커피 용품
+          li 패키지 티(티바나)
+          li 스타벅스 플래너
+        ul
+          li 카드
+          li 실물카드
+          li e-Gift 카드
+        ul
+          li 메뉴 이야기
+          li 나이트로 콜드브루
+          li 콜드 브루
+          li 스타벅스 티바나
+      .header__toggle__footer
+        p
+          .comment 나이트로 콜드 브루
+            img(src="../public/images/icon_gnb_new.png", alt="new")
+          .desc 나이트로 커피 정통의 물결치듯 흘러내리는 캐스케이딩과 부드러운 크림을 경험하세요.
+    .header__toggle__container
+      .header__toggle
+        ul
+          li 매장 찾기
+          li 퀵 검색
+          li 지역 검색
+        ul
+          li 드라이브 스루 매장
+        ul
+          li 스타벅스 리저브&#8482 매장
+        ul
+          li 커뮤니티 스토어 매장
+        ul
+          li 매장 이야기
+          li 청담스타
+          li 티바나 바 매장
+          li 파미에파크
+      .header__toggle__footer
+        p
+          .comment 매장찾기
+          .desc 보다 빠르게 매장을 찾아보세요.
+        p
+          .comment 이대R점
+            img(src="../public/images/icon_gnb_new.png", alt="new")
+          .desc 1호점 특화 MD와 티바나 티, 최고의 리저브 커피를 만나보세요.
+    .header__toggle__container
+      .header__toggle
+        ul
+          li 사회 공헌 캠페인 소개
+        ul
+          li 지역 사회 참여 활동
+          li 희망배달 캠페인
+          li 재능기부 카페 소식
+          li 커뮤니티 스토어
+          li 청년인재 양성 
+          li 우리 농산물 사랑 캠페인
+          li 우리 문화 지키기
+        ul
+          li 환경보호 활동
+          li 환경 발자국 줄이기
+          li 일회용 컵 없는 매장
+          li 커피 원두 재활용
+        ul
+          li 윤리 구매
+          li 윤리적 원두 구매
+          li 공정무역 인증
+          li 커피농가 지원 활동
+        ul
+          li 글로벌 사회 공헌
+          li 윤리경영 보고서
+          li 스타벅스 재단
+          li 지구촌 봉사의 달
+      .header__toggle__footer
+        p
+          .comment 커피원두 재활용
+          .desc 스타벅스 커피 원두를 재활용해 보세요.
+    .header__toggle__container
+      .header__toggle
+        ul
+          li 스타벅스 리워드
+          li 스타벅스 리워드 소개
+          li 등급 및 혜택
+          li 스타벅스 별
+          li 자주하는 질문
+        ul
+          li 스타벅스 카드
+          li 스타벅스 카드 소개
+          li 스타벅스 카드 갤러리
+          li 등록 및 조회
+          li 충전 및 이용안내
+          li 분실신고/환불신청
+          li 자주하는 질문
+        ul
+          li 스타벅스 e-Gift Card
+          li 스타벅스 e-Gift Card 소개
+          li 이용안내
+          li 선물하기
+          li 자주하는 질문
+      .header__toggle__footer
+        p
+          .comment 스타벅스 카드 등록하기
+          .desc 카드 등록 후 리워드 서비스를 누리고 사용내역도 조회해보세요..
+    .header__toggle__container
+      .header__toggle
+        ul
+          li 이벤트
+          li 전체
+          li 스타벅스 카드
+          li 스타벅스 리워드
+          li 온라인
+        ul
+          li 뉴스
+          li 전체
+          li 상품 출시
+          li 스타벅스와 문화
+          li 스타벅스 사회공헌
+          li 스타벅스 카드출시
+        ul
+          li 매장별 이벤트
+          li 일반 매장
+          li 신규 매장
+        ul
+          li 공지사항
+        ul
+          li 월페이퍼
+      .header__toggle__footer
+        p
+          .comment 매장별 이벤트
+          .desc 스타벅스의 매장 이벤트 정보를 확인 하실 수 있습니다.
+        p
+          .comment 월페이퍼
+          .desc 매월 업데이트되는 월페이퍼(PC/Mobile)로 스타벅스를 더울 가깝게 즐겨보세요!
     div.container
       block content
     footer
