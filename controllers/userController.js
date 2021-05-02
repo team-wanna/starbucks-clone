@@ -4,7 +4,7 @@ import User from "../models/User";
 export const output = {
   join: (req, res) => res.render("join", { title: "join" }),
   login: (req, res) => res.render("login", { title: "login" }),
-  my: (req, res) => res.send("my page"),
+  my: (req, res) => res.render("myStarbucks", { title: "myStarbucks" }),
 };
 
 // Post

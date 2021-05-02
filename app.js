@@ -25,8 +25,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // 라우터
-// app.get("/", (req, res) => res.render("index", { title: 'index' }));
-app.get("/", (req,res) => res.render("msLayout", { title: 'msLayout'}));
+app.get("/", (req, res) => res.render("index", { title: "index" }));
 app.use("/user", userRouter);
 
 // 서버 연결
