@@ -1,0 +1,122 @@
+extends layout
+block src
+    link(rel="stylesheet", href=`/public/css/${title}.css`)
+    script(src=`/public/js/${title}.js`, defer)
+block content
+  section.title
+    div.title__container
+      h4 고객의 소리
+      ul
+        li
+          a(href='#')
+            img(src="../public/images/icon-home.png")
+        li
+          img(src="../public/images/icon-arrow.png")
+        li
+          a My Starbucks
+        li
+          img(src="../public/images/icon-arrow.png")
+        li
+          a <b>고객의 소리</b>
+  section.content
+    div.content__container
+      section.content__suggestion
+        ul
+          li <b>귀한 말씀 들려 주십시오. 작은 소리도 듣겠습니다.</b>
+          li 스타벅스에서는 고객 여러분의 즐겁고 행복한 시간을 위해 정성을 다하고 있습니다.
+          li 만족스러운 서비스였는지, 불만스러운 점은 없으셨는지 귀한 의견을 들려주시기 바랍니다.
+          li 보다 나은 서비스로 보답하겠습니다.
+          li 고객의 소리 운영시간 : 09:00 ~ 18:00 (연중 무휴)
+        p
+          a <b>고객의 소리 문의 하기</b>
+      section.content__list
+        ul.content__menu-list
+          li.active 전체 0
+          li 접수완료 0
+          li 답변완료 0
+        table
+          thead
+            tr
+              th No
+              th 제목
+              th 작성일
+              th 답변예정일
+              th 답변여부
+          tbody
+            tr
+              td(colspan=5) 데이터가 없습니다.
+    nav
+      ul
+        li
+          a(href="#")
+            | My 리워드
+            span.icon--arrow-down
+          ul
+            li
+              a(href="#") · 리워드 및 혜택
+            li
+              a(href="#") · 별 히스토리
+        li
+          a(href="#")
+            | My 스타벅스 카드
+            span.icon--arrow-down
+          ul
+            li
+              a(href="#") · 보유 카드
+            li
+              a(href="#") · 카드 등록
+            li
+              a(href="#") · 카드 충전
+            li
+              a(href="#") · 분실 신고/잔액이전
+        li
+          a(href="#")
+            | My 스타벅스 e-Gift Card
+            span.icon--arrow-down
+          ul
+            li
+              a(href="#") · 선물하기
+            li
+              a(href="#") · 선물 내역
+            li
+              a(href="#") · 장바구니 내역
+        li
+          a(href="#")
+            | My 쿠폰
+            span.icon--arrow-down
+          ul
+            li
+              a(href="#") · 등록하기
+            li
+              a(href="#") · 선물하기
+            li
+              a(href="#") · 사용하기
+        li
+          a(href="#")
+            | My 캘린더
+        li
+          a(href="#")
+            | My 메뉴
+        li
+          a(href="#")
+            | My 고객의 소리
+        li
+          a(href="#")
+            | 전자영수증
+        li
+          a(href="#")
+            | 개인컵 리워드 설정
+        li
+          a(href="#")
+            | My DT Pass
+        li
+          a(href="#")
+            | 개인정보관리
+            span.icon--arrow-down
+          ul
+            li
+              a(href="#") · 등록하기
+            li
+              a(href="#") · 선물하기
+            li
+              a(href="#") · 사용하기
