@@ -1,22 +1,19 @@
 import mongoose from "mongoose";
-import passport from "passport-local-mongoose";
 
 const UserSchema = new mongoose.Schema({
-  id: String,
-  pwd: String,
-  name: String,
-  gender: String,
-  birth: String,
-  phone: Number,
-  email: String,
-  nickname: String,
+  id: { type: String, required: true, unique: true },
+  pwd: { type: String, required: true },
+  name: { type: String, required: true },
+  gender: { type: String, required: true },
+  birth: { type: String, required: true },
+  phone: { type: String, required: true },
+  email: { type: String, required: true },
+  nickname: { type: String }, // null 허용 && 중복 불가 설정 알아보기
   isAdmin: {
     type: Boolean,
     default: false,
   },
 });
-
-UserSchema.plugin(passport, { usernameField: "id" });
 
 const model = mongoose.model("User", UserSchema);
 

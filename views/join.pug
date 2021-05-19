@@ -4,6 +4,8 @@ block content
   script(src="/public/js/join.js", defer) 
   .join-form-container
     .join-form-container__title 회원가입
+    if msg
+      .error=msg
     form.join-form-container__content(action="/user/join", method="POST")
       .content
         .content__guide-block
@@ -14,7 +16,7 @@ block content
         .content__input  
           input.input__item(type="password", placeholder="비밀번호", name="pwd", required)
         .content__input--last
-          input.input__item(type="password", placeholder="비밀번호 확인", name="pwd2", required)
+          input.input__item(type="password", placeholder="비밀번호 확인", name="pwdCheck", required)
       .content
         .content__input
           .input__title 이름

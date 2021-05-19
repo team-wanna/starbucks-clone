@@ -12,10 +12,14 @@ html(len="ko")
           img.header__logo(src="../public/images/logo.png")
           nav.header__util-nav
             ul
+              if !user
+                li.header__util-nav__item
+                  a(href="/user/login") Sign in
+              else
+                li.header__util-nav__item
+                  a(href="/user/logout") Sign out
               li.header__util-nav__item
-                a Sign in
-              li.header__util-nav__item
-                a My Starbucks
+                a(href="/user/my") My Starbucks
               li.header__util-nav__item
                 a Customer Service & Ideas
               li.header__util-nav__item
