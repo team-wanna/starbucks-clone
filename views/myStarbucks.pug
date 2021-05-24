@@ -1,4 +1,6 @@
 extends layout
+include mixins/suggetionList
+
 block content
   section.title
     div.title__container
@@ -25,12 +27,12 @@ block content
           li 보다 나은 서비스로 보답하겠습니다.
           li 고객의 소리 운영시간 : 09:00 ~ 18:00 (연중 무휴)
         p
-          a <b>고객의 소리 문의 하기</b>
+          a(href="/suggetion") <b>고객의 소리 문의 하기</b>
       section.content__list
         ul.content__menu-list
-          li.active 전체 0
-          li 접수완료 0
-          li 답변완료 0
+          li.active 전체 #{suggetions.length}
+          li 접수완료 #{waitingSuggetions.length}
+          li 답변완료 #{completedSuggetions.length}
         table
           thead
             tr
@@ -40,8 +42,12 @@ block content
               th 답변예정일
               th 답변여부
           tbody
-            tr
-              td(colspan=5) 데이터가 없습니다.
+            each suggetion,index in suggetions
+              +suggetionList(suggetion, index)
+            else
+              tr
+                td(colspan=5) 데이터가 없습니다.
+              
     nav
       ul
         li

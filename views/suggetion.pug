@@ -1,0 +1,110 @@
+extends layout
+block content
+  section.title
+    div.title__container
+      h4 고객의 소리
+      ul
+        li
+          a(href="/")
+            img(src="../public/images/icon-home.png")
+        li
+          img(src="../public/images/icon-arrow.png")
+        li
+          a(href="/user/my") My Starbucks
+        li
+          img(src="../public/images/icon-arrow.png")
+        li
+          a(href='/user/my') <b>고객의 소리</b>
+  section.content
+    div.content__container
+      section.content__suggestion
+        ul
+          li <b>귀한 말씀 들려 주십시오. 작은 소리도 듣겠습니다.</b>
+          li 스타벅스에서는 고객 여러분의 즐겁고 행복한 시간을 위해 정성을 다하고 있습니다.
+          li 만족스러운 서비스였는지, 불만스러운 점은 없으셨는지 귀한 의견을 들려주시기 바랍니다.          
+          li 고객의 소리 운영시간 : 09:00 ~ 18:00 (연중 무휴)        
+        div.content__suggetion__btn
+          a(href="/user/my").suggetion-btn 나의 문의 내역 보기
+      section.content__form
+        div.content__form__notice
+          span.icon--notice
+          p.content__form__notice__text 표시 항목은 필수 입력 사항입니다.
+        form(method="POST")
+          div.content__form__row
+            div.content__form__row-title
+              label(for="title") 답변 알림 서비스
+              span.icon--notice
+            div.content__form__row__input-container
+              input(type="radio" name="alarm" id="alarmN" value="false").
+              label(for="alarmN" style="margin-right:15px") 받지 않음
+              input(type="radio" name="alarm" id="alarmY" value="true")
+              label(for="alarmY") 받음 (APP Push)
+          div.content__form__row
+            div.content__form__row-title
+              label(for="title") 답변 받으실 메일
+              span.icon--notice
+            div.content__form__row__input-container
+              input(type="text" name="mailId" id="mailId" required value=emailId).input-medium
+              p.mail-at @
+              input(type="text" name="mailAddress" id="mailAddress" required value=emailAddress).input-medium
+              select.mail-select
+                option(selected="selected" value="") 직접 입력
+                option(value="hotmail.com") hotmail.com
+                option(value="yahoo.co.kr") yahoo.co.kr
+                option(value="naver.com") naver.com
+                option(value="nate.com") nate.com
+                option(value="gmail.com") gmail.com                                                                                            
+          div.content__form__row
+            div.content__form__row-title
+              label(for="title") 연락처              
+            div.content__form__row__input-container
+              select(id="phone1" name="phone1").phone-select
+                option(selected="selected" value="010") 010
+                option(value="011") 011
+                option(value="016") 016
+                option(value="017") 017
+                option(value="018") 018
+                option(value="019") 019
+              p.hyphen -
+              input(type="text" name="phone2" id="phone2").input-small
+              p.hyphen -
+              input(type="text" name="phone3" id="phone3").input-small
+          div.content__form__row
+            div.content__form__row-title
+              label(for="title") 제목
+              span.icon--notice
+            div.content__form__row__input-container
+              input(type="text" name="title" id="title" required).form-title.input-large
+          div.content__form__row.form--content
+            div.content__form__row-title
+              label(for="content") 내용
+              span.icon--notice
+            div.content__form__row__input-container
+              input(type="text" name="content" id="content" required).form-content.input-large
+          div.content__form__row__btn
+            input(type="submit" value="고객의 소리 등록하기").suggetion-btn
+    nav
+      ul
+        li
+          a(href="#")
+            | 자주하는 질문          
+        li
+          a(href="#")
+            | 고객의 소리          
+        li
+          a(href="#")
+            | 스토어 케어                      
+        li
+          a(href="#")
+            | 스타벅스 이용 팁
+            span.icon--arrow-down
+          ul
+            li
+              a(href="#") · 홈페이지 이용 팁
+            li
+              a(href="#") · 애플리케이션 이용 팁
+            li
+              a(href="#") · 제휴카드 안내
+        li
+          a(href="#")
+            | 고객경험 설문조사
