@@ -47,6 +47,53 @@ export const output = {
       alarmY,
     });
   },
+  watch: async (req, res) => {
+    const { _id } = req.params;
+    const suggetion = await Suggetion.findById(_id);
+
+    if (!suggetion) {
+      console.log('Suggetion not found.');
+      return res.render('user/my');
+    }
+
+    let { email, phone, alarm } = suggetion;
+    email = email.split('@');
+    const emailId = email[0];
+    const emailAddress = email[1];
+    phone = phone.split('-');
+    const phone2 = phone[1];
+    const phone3 = phone[2];
+
+    let alarmN, alarmY;
+    if (alarm) {
+      alarmN = false;
+      alarmY = true;
+    } else {
+      alarmN = true;
+      alarmY = false;
+    }
+
+    return res.render('watch', {
+      title: 'watch',
+      suggetion,
+      emailId,
+      emailAddress,
+      phone2,
+      phone3,
+      alarmN,
+      alarmY,
+    });
+  },
+  delete: async (req, res) => {
+    const { _id } = req.params;
+    try {
+      await Suggetion.findByIdAndDelete(_id);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      return res.redirect('/user/my');
+    }
+  },
 };
 
 // Post
