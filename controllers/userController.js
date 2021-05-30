@@ -12,12 +12,24 @@ export const output = {
     const suggetions = await Suggetion.find({ writerId: id });
     const completedSuggetions = await Suggetion.find({ writerId: id, status: 'Y' });
     const waitingSuggetions = await Suggetion.find({ writerId: id, status: 'N' });
-    return res.render('myStarbucks', {
-      title: 'myStarbucks',
-      suggetions,
-      completedSuggetions,
-      waitingSuggetions,
-    });
+    const allSuggestions = await Suggetion.find({});
+    const allCompletedSuggetions = await Suggetion.find({ status: 'Y' });
+    const allWaitingSuggetions = await Suggetion.find({ status: 'N' });
+    if (!req.session.user.isAdmin) {
+      return res.render('myStarbucks', {
+        title: 'myStarbucks',
+        suggetions,
+        completedSuggetions,
+        waitingSuggetions,
+      });
+    } else {
+      return res.render('myStarbucks', {
+        title: 'myStarbucks',
+        allSuggestions,
+        allCompletedSuggetions,
+        allWaitingSuggetions,
+      });
+    }
   },
 };
 

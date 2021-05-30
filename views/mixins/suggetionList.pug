@@ -2,7 +2,7 @@ mixin suggetionList(suggetion, index)
   tr
     td #{index+1}
     td
-      a(href=`/${suggetion._id}`)=suggetion.title
+      a(href=`/suggetion/${suggetion._id}`)=suggetion.title
     td=suggetion.createdAt
     td=suggetion.answeredAt
     td=suggetion.status

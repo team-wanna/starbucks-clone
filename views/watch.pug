@@ -69,11 +69,12 @@ block content
             div.content__form__row__input-container
               input(type="text" name="content" id="content" required value=suggetion.content disabled).form-content.input-large
           div.content__form__row__btn
-            a(href=`/${suggetion._id}/edit`).suggetion-btn 수정하기
-            a(href=`/${suggetion._id}/delete`).suggetion-btn 삭제하기
-      
+            if !user.isAdmin
+              a(href=`/suggetion/${suggetion._id}/edit`).suggetion-btn 수정하기
+              a(href=`/suggetion/${suggetion._id}/delete`).suggetion-btn 삭제하기
+
       //- admin이면 조건 추가 필요
-      if suggetion.status === 'N'
+      if suggetion.status === 'N' && user.isAdmin
         hr.divider
         section.content__answer
           div.content__form__row.form--content.answer
@@ -83,18 +84,21 @@ block content
             div.content__form__row__input-container
               input(type="text" name="answer" id="answer" required).form-content.input-large
           div.content__form__row__btn
-            a(href=`/${suggetion._id}/answer`).suggetion-btn 답변하기
+            //- a(href=`/suggestion/${suggetion._id}/answer`).suggetion-btn 답변하기
+            button(data-id=suggetion._id).suggetion-btn.suggetion-btn__answer 답변하기
       else if suggetion.status === 'Y'
         hr.divider
         section.content__answer
-           div.content__form__row.form--content.answer
+          div.content__form__row.form--content.answer
             div.content__form__row-title
               label(for="answer") 답변
               span.icon--notice
             div.content__form__row__input-container
               //- 답변 내용 받아와서 여기 input의 value 속성값에 넣어주세요😀
-              input(type="text" name="answer" id="answer" value="답변 내용" required disabled).form-content.input-large
-
+              input(type="text" name="answer" id="answer" value=answer.contents required disabled).form-content.input-large
+          if user.isAdmin
+            div.content__form__row__btn
+              a(href=`/suggetion/${suggetion._id}/edit`).suggetion-btn 수정하기
     nav
       ul
         li

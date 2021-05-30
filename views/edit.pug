@@ -29,7 +29,10 @@ block content
         div.content__form__notice
           span.icon--notice
           p.content__form__notice__text 표시 항목은 필수 입력 사항입니다.
-        form(method="POST")
+        if user.isAdmin
+          div.block
+            p 작성자만 수정할 수 있습니다.
+        form(method="POST").form
           div.content__form__row
             div.content__form__row-title
               label(for="title") 답변 알림 서비스
@@ -81,8 +84,21 @@ block content
               span.icon--notice
             div.content__form__row__input-container
               input(type="text" name="content" id="content" required value=suggetion.content).form-content.input-large
-          div.content__form__row__btn
-            input(type="submit" value="고객의 소리 변경하기").suggetion-btn
+          if !user.isAdmin
+            div.content__form__row__btn
+              input(type="submit" value="고객의 소리 변경하기").suggetion-btn
+          if user.isAdmin 
+            hr.divider
+            section.content__answer
+              div.content__form__row.form--content.answer
+                div.content__form__row-title
+                  label(for="answer") 답변
+                  span.icon--notice
+                div.content__form__row__input-container
+                  //- 답변 내용 받아와서 여기 input의 value 속성값에 넣어주세요😀
+                  input(type="text" name="answer" id="answer" value=answer.contents required).form-content.input-large
+              div.content__form__row__btn
+                button(data-answer=answer._id, data-suggestion=suggetion._id).suggetion-btn.suggetion-btn__edit 수정하기
     nav
       ul
         li

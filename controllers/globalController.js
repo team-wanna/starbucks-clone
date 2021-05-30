@@ -1,4 +1,6 @@
 import Suggetion from '../models/Suggetion';
+import Answer from '../models/Answer';
+import User from '../models/User';
 
 // Get
 export const output = {
@@ -13,6 +15,7 @@ export const output = {
   edit: async (req, res) => {
     const { _id } = req.params;
     const suggetion = await Suggetion.findById(_id);
+    const answer = await Answer.findOne({ suggestionId: _id });
 
     if (!suggetion) {
       console.log('Suggetion not found.');
@@ -45,12 +48,13 @@ export const output = {
       phone3,
       alarmN,
       alarmY,
+      answer,
     });
   },
   watch: async (req, res) => {
     const { _id } = req.params;
     const suggetion = await Suggetion.findById(_id);
-
+    const answer = await Answer.findOne({ suggestionId: _id });
     if (!suggetion) {
       console.log('Suggetion not found.');
       return res.render('user/my');
@@ -82,12 +86,14 @@ export const output = {
       phone3,
       alarmN,
       alarmY,
+      answer,
     });
   },
   delete: async (req, res) => {
     const { _id } = req.params;
     try {
       await Suggetion.findByIdAndDelete(_id);
+      await Answer.findOneAndDelete({ suggestionId: _id });
     } catch (err) {
       console.log(err);
     } finally {
@@ -136,6 +142,34 @@ export const process = {
     } catch (err) {
       console.log(err);
       return res.redirect('/user/my');
+    }
+  },
+
+  // answer
+  createAnswer: async (req, res) => {
+    const { suggestionId, contents } = req.body;
+    try {
+      const answer = await Answer.create({
+        suggestionId,
+        contents,
+      });
+      const suggestion = await Suggetion.findOneAndUpdate({ _id: suggestionId }, { status: 'Y' });
+      answer.save();
+      suggestion.save();
+      return res.sendStatus(201);
+    } catch (error) {
+      console.log(error);
+      return res.status(400).redirect(`/`);
+    }
+  },
+  patchAnswer: async (req, res) => {
+    const { answerId, contents } = req.body;
+    try {
+      await Answer.findOneAndUpdate({ _id: answerId }, { contents });
+      return res.sendStatus(200);
+    } catch (error) {
+      console.log(error);
+      return res.status(400).redirect(`/`);
     }
   },
 };
