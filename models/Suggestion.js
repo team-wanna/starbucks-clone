@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 import moment from 'moment';
 
-const SuggetionSchema = new mongoose.Schema({
-  writerId: { type: String, required: true },
+const SuggestionSchema = new mongoose.Schema({
+  owner: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User' },
   title: { type: String, required: true },
   content: { type: String, required: true },
   createdAt: { type: String, required: true, default: moment().format('YYYY-MM-DD') },
@@ -17,6 +17,6 @@ const SuggetionSchema = new mongoose.Schema({
   phone: { type: String },
 });
 
-const suggetionModel = mongoose.model('Suggetion', SuggetionSchema);
+const suggestionModel = mongoose.model('Suggestion', SuggestionSchema);
 
-export default suggetionModel;
+export default suggestionModel;

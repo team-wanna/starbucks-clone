@@ -1,5 +1,5 @@
 extends layout
-include mixins/suggetionList
+include mixins/suggestionList
 
 block content
   section.title
@@ -27,18 +27,18 @@ block content
           li 보다 나은 서비스로 보답하겠습니다.
           li 고객의 소리 운영시간 : 09:00 ~ 18:00 (연중 무휴)
         p
-          a(href="/suggetion") <b>고객의 소리 문의 하기</b>
+          a(href="/suggestion") <b>고객의 소리 문의 하기</b>
       section.content__list
         if user.isAdmin 
           ul.content__menu-list
               li.active 전체 #{allSuggestions.length}
-              li 접수완료 #{allWaitingSuggetions.length}
-              li 답변완료 #{allCompletedSuggetions.length}
+              li 접수완료 #{allWaitingSuggestions.length}
+              li 답변완료 #{allCompletedSuggestions.length}
         else
           ul.content__menu-list
-            li.active 전체 #{suggetions.length}
-            li 접수완료 #{waitingSuggetions.length}
-            li 답변완료 #{completedSuggetions.length}
+            li.active 전체 #{suggestions.length}
+            li 접수완료 #{waitingSuggestions.length}
+            li 답변완료 #{completedSuggestions.length}
         table
           thead
             tr
@@ -49,14 +49,14 @@ block content
               th 답변여부
           tbody
             if user.isAdmin
-              each suggetion,index in allSuggestions
-                +suggetionList(suggetion, index)
+              each suggestion,index in allSuggestions
+                +suggestionList(suggestion, index)
               else
                 tr
                   td(colspan=5) 데이터가 없습니다.
             else
-              each suggetion,index in suggetions
-                +suggetionList(suggetion, index)
+              each suggestion,index in suggestions
+                +suggestionList(suggestion, index)
               else
                 tr
                   td(colspan=5) 데이터가 없습니다.

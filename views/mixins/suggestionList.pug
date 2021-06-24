@@ -1,0 +1,8 @@
+mixin suggestionList(suggestion, index)
+  tr
+    td #{index+1}
+    td
+      a(href=`/suggestion/${suggestion._id}`)=suggestion.title
+    td=suggestion.createdAt
+    td=suggestion.answeredAt
+    td=suggestion.status

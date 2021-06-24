@@ -1,28 +1,33 @@
-import Suggetion from '../models/Suggetion';
+import Suggestion from '../models/Suggestion';
 import Answer from '../models/Answer';
 import User from '../models/User';
 
 // Get
 export const output = {
   home: (req, res) => res.render('index', { title: 'index' }),
-  suggetion: (req, res) => {
-    let email = req.session.user.email;
-    email = email.split('@');
-    const emailId = email[0];
-    const emailAddress = email[1];
-    return res.render('suggetion', { title: 'suggetion', emailId, emailAddress });
+  suggestion: (req, res) => {
+    const email = req.session.user.email.split('@');
+    const phone = req.session.user.phone.split('-');
+    const userData = {
+      emailId: email[0],
+      emailAddress: email[1],
+      phone2: phone[1],
+      phone3: phone[2],
+    };
+
+    return res.render('suggestion', { title: 'suggestion', userData });
   },
   edit: async (req, res) => {
     const { _id } = req.params;
-    const suggetion = await Suggetion.findById(_id);
+    const suggestion = await Suggestion.findById(_id);
     const answer = await Answer.findOne({ suggestionId: _id });
 
-    if (!suggetion) {
-      console.log('Suggetion not found.');
+    if (!suggestion) {
+      console.log('Suggestion not found.');
       return res.render('user/my');
     }
 
-    let { email, phone, alarm } = suggetion;
+    let { email, phone, alarm } = suggestion;
     email = email.split('@');
     const emailId = email[0];
     const emailAddress = email[1];
@@ -41,7 +46,7 @@ export const output = {
 
     return res.render('edit', {
       title: 'edit',
-      suggetion,
+      suggestion,
       emailId,
       emailAddress,
       phone2,
@@ -53,14 +58,14 @@ export const output = {
   },
   watch: async (req, res) => {
     const { _id } = req.params;
-    const suggetion = await Suggetion.findById(_id);
+    const suggestion = await Suggestion.findById(_id);
     const answer = await Answer.findOne({ suggestionId: _id });
-    if (!suggetion) {
-      console.log('Suggetion not found.');
+    if (!suggestion) {
+      console.log('Suggestion not found.');
       return res.render('user/my');
     }
 
-    let { email, phone, alarm } = suggetion;
+    let { email, phone, alarm } = suggestion;
     email = email.split('@');
     const emailId = email[0];
     const emailAddress = email[1];
@@ -79,7 +84,7 @@ export const output = {
 
     return res.render('watch', {
       title: 'watch',
-      suggetion,
+      suggestion,
       emailId,
       emailAddress,
       phone2,
@@ -92,7 +97,7 @@ export const output = {
   delete: async (req, res) => {
     const { _id } = req.params;
     try {
-      await Suggetion.findByIdAndDelete(_id);
+      await Suggestion.findByIdAndDelete(_id);
       await Answer.findOneAndDelete({ suggestionId: _id });
     } catch (err) {
       console.log(err);
@@ -104,25 +109,28 @@ export const output = {
 
 // Post
 export const process = {
-  suggetion: async (req, res) => {
-    const { id } = req.session.user;
+  suggestion: async (req, res) => {
+    const { _id } = req.session.user;
     const { alarm, mailId, mailAddress, phone1, phone2, phone3, title, content } = req.body;
     const email = `${mailId}@${mailAddress}`;
     const phone = phone2 && phone3 ? `${phone1}-${phone2}-${phone3}` : '';
 
     try {
-      await Suggetion.create({
-        writerId: id,
+      const newSuggestion = await Suggestion.create({
+        owner: _id,
         title,
         content,
         alarm,
         email,
         phone,
       });
+      const user = await User.findById(_id);
+      user.suggestions.push(newSuggestion._id);
+      user.save();
       return res.redirect('/user/my');
     } catch (err) {
       console.log(err);
-      return res.redirect('/suggetion');
+      return res.redirect('/suggestion');
     }
   },
   edit: async (req, res) => {
@@ -131,7 +139,7 @@ export const process = {
     const email = `${mailId}@${mailAddress}`;
     const phone = phone2 && phone3 ? `${phone1}-${phone2}-${phone3}` : '';
     try {
-      await Suggetion.findByIdAndUpdate(_id, {
+      await Suggestion.findByIdAndUpdate(_id, {
         title,
         content,
         alarm,
@@ -153,7 +161,7 @@ export const process = {
         suggestionId,
         contents,
       });
-      const suggestion = await Suggetion.findOneAndUpdate({ _id: suggestionId }, { status: 'Y' });
+      const suggestion = await Suggestion.findOneAndUpdate({ _id: suggestionId }, { status: 'Y' });
       answer.save();
       suggestion.save();
       return res.sendStatus(201);

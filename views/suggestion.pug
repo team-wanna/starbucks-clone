@@ -23,8 +23,8 @@ block content
           li 스타벅스에서는 고객 여러분의 즐겁고 행복한 시간을 위해 정성을 다하고 있습니다.
           li 만족스러운 서비스였는지, 불만스러운 점은 없으셨는지 귀한 의견을 들려주시기 바랍니다.          
           li 고객의 소리 운영시간 : 09:00 ~ 18:00 (연중 무휴)        
-        div.content__suggetion__btn
-          a(href="/user/my").suggetion-btn 나의 문의 내역 보기
+        div.content__suggestion__btn
+          a(href="/user/my").suggestion-btn 나의 문의 내역 보기
       section.content__form
         div.content__form__notice
           span.icon--notice
@@ -35,7 +35,7 @@ block content
               label(for="title") 답변 알림 서비스
               span.icon--notice
             div.content__form__row__input-container
-              input(type="radio" name="alarm" id="alarmN" value="false").
+              input(type="radio" name="alarm" id="alarmN" value="false" checked).
               label(for="alarmN" style="margin-right:15px") 받지 않음
               input(type="radio" name="alarm" id="alarmY" value="true")
               label(for="alarmY") 받음 (APP Push)
@@ -44,9 +44,9 @@ block content
               label(for="title") 답변 받으실 메일
               span.icon--notice
             div.content__form__row__input-container
-              input(type="text" name="mailId" id="mailId" required value=emailId).input-medium
+              input(type="text" name="mailId" id="mailId" required value=userData.emailId).input-medium
               p.mail-at @
-              input(type="text" name="mailAddress" id="mailAddress" required value=emailAddress).input-medium
+              input(type="text" name="mailAddress" id="mailAddress" required value=userData.emailAddress).input-medium
               select.mail-select
                 option(selected="selected" value="") 직접 입력
                 option(value="hotmail.com") hotmail.com
@@ -66,9 +66,9 @@ block content
                 option(value="018") 018
                 option(value="019") 019
               p.hyphen -
-              input(type="text" name="phone2" id="phone2").input-small
+              input(type="text" name="phone2" id="phone2" value=userData.phone2).input-small
               p.hyphen -
-              input(type="text" name="phone3" id="phone3").input-small
+              input(type="text" name="phone3" id="phone3" value=userData.phone3).input-small
           div.content__form__row
             div.content__form__row-title
               label(for="title") 제목
@@ -82,7 +82,7 @@ block content
             div.content__form__row__input-container
               input(type="text" name="content" id="content" required).form-content.input-large
           div.content__form__row__btn
-            input(type="submit" value="고객의 소리 등록하기").suggetion-btn
+            input(type="submit" value="고객의 소리 등록하기").suggestion-btn
     nav
       ul
         li

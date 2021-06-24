@@ -1,5 +1,5 @@
 import User from '../models/User';
-import Suggetion from '../models/Suggetion';
+import Suggestion from '../models/Suggestion';
 import bcrypt from 'bcrypt';
 
 // Get
@@ -7,27 +7,28 @@ export const output = {
   join: (req, res) => res.render('join', { title: 'join' }),
   login: (req, res) => res.render('login', { title: 'login' }),
   my: async (req, res) => {
-    // 추가해야 하는 거 -> 세션에 있는 사용자 정보를 통해 게시글 꺼내오기
-    const { id } = req.session.user;
-    const suggetions = await Suggetion.find({ writerId: id });
-    const completedSuggetions = await Suggetion.find({ writerId: id, status: 'Y' });
-    const waitingSuggetions = await Suggetion.find({ writerId: id, status: 'N' });
-    const allSuggestions = await Suggetion.find({});
-    const allCompletedSuggetions = await Suggetion.find({ status: 'Y' });
-    const allWaitingSuggetions = await Suggetion.find({ status: 'N' });
     if (!req.session.user.isAdmin) {
+      const { _id } = req.session.user;
+      const suggestions = await Suggestion.find({ owner: _id });
+      const completedSuggestions = await Suggestion.find({ owner: _id, status: 'Y' });
+      const waitingSuggestions = await Suggestion.find({ owner: _id, status: 'N' });
+
       return res.render('myStarbucks', {
         title: 'myStarbucks',
-        suggetions,
-        completedSuggetions,
-        waitingSuggetions,
+        suggestions,
+        completedSuggestions,
+        waitingSuggestions,
       });
     } else {
+      const allSuggestions = await Suggestion.find({});
+      const allCompletedSuggestions = await Suggestion.find({ status: 'Y' });
+      const allWaitingSuggestions = await Suggestion.find({ status: 'N' });
+
       return res.render('myStarbucks', {
         title: 'myStarbucks',
         allSuggestions,
-        allCompletedSuggetions,
-        allWaitingSuggetions,
+        allCompletedSuggestions,
+        allWaitingSuggestions,
       });
     }
   },

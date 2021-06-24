@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
   id: { type: String, required: true, unique: true },
@@ -13,8 +13,9 @@ const UserSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  suggestions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Suggestion' }],
 });
 
-const model = mongoose.model("User", UserSchema);
+const model = mongoose.model('User', UserSchema);
 
 export default model;
