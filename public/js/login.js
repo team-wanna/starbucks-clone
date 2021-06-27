@@ -1,16 +1,15 @@
-const remember = document.querySelector("#remember");
-const id = document.querySelector("#id");
-const loginForm = document.querySelector(".login-form-container__content");
+const remember = document.querySelector('#remember');
+const id = document.querySelector('#id');
+const loginForm = document.querySelector('.login-form-container__content');
 
-loginForm.addEventListener("submit", () => {
+loginForm.addEventListener('submit', () => {
   if (remember.checked) {
-    remId = id.value;
-    localStorage.setItem("remId", remId);
+    localStorage.setItem('remId', id.value);
   }
 });
 
 const getId = () => {
-  const remId = localStorage.getItem("remId");
+  const remId = localStorage.getItem('remId');
   if (remId) {
     id.value = remId;
   }
