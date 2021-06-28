@@ -23,8 +23,8 @@ block content
           li 스타벅스에서는 고객 여러분의 즐겁고 행복한 시간을 위해 정성을 다하고 있습니다.
           li 만족스러운 서비스였는지, 불만스러운 점은 없으셨는지 귀한 의견을 들려주시기 바랍니다.          
           li 고객의 소리 운영시간 : 09:00 ~ 18:00 (연중 무휴)        
-        div.content__suggetion__btn
-          a(href="/user/my").suggetion-btn 나의 문의 내역 보기
+        div.content__suggestion__btn
+          a(href="/user/my").suggestion-btn 나의 문의 내역 보기
       section.content__form
         div.content__form__notice
           span.icon--notice
@@ -61,20 +61,20 @@ block content
               label(for="title") 제목
               span.icon--notice
             div.content__form__row__input-container
-              input(type="text" name="title" id="title" required value=suggetion.title disabled).form-title.input-large
+              input(type="text" name="title" id="title" required value=suggestion.title disabled).form-title.input-large
           div.content__form__row.form--content
             div.content__form__row-title
               label(for="content") 내용
               span.icon--notice
             div.content__form__row__input-container
-              input(type="text" name="content" id="content" required value=suggetion.content disabled).form-content.input-large
+              input(type="text" name="content" id="content" required value=suggestion.content disabled).form-content.input-large
           div.content__form__row__btn
             if !user.isAdmin
-              a(href=`/suggetion/${suggetion._id}/edit`).suggetion-btn 수정하기
-              a(href=`/suggetion/${suggetion._id}/delete`).suggetion-btn 삭제하기
+              a(href=`/suggestion/${suggestion._id}/edit`).suggestion-btn 수정하기
+              a(href=`/suggestion/${suggestion._id}/delete`).suggestion-btn 삭제하기
 
       //- admin이면 조건 추가 필요
-      if suggetion.status === 'N' && user.isAdmin
+      if suggestion.status === 'N' && user.isAdmin
         hr.divider
         section.content__answer
           div.content__form__row.form--content.answer
@@ -84,9 +84,9 @@ block content
             div.content__form__row__input-container
               input(type="text" name="answer" id="answer" required).form-content.input-large
           div.content__form__row__btn
-            //- a(href=`/suggestion/${suggetion._id}/answer`).suggetion-btn 답변하기
-            button(data-id=suggetion._id).suggetion-btn.suggetion-btn__answer 답변하기
-      else if suggetion.status === 'Y'
+            //- a(href=`/suggestion/${suggestion._id}/answer`).suggestion-btn 답변하기
+            button(data-id=suggestion._id).suggestion-btn.suggestion-btn__answer 답변하기
+      else if suggestion.status === 'Y'
         hr.divider
         section.content__answer
           div.content__form__row.form--content.answer
@@ -98,7 +98,7 @@ block content
               input(type="text" name="answer" id="answer" value=answer.contents required disabled).form-content.input-large
           if user.isAdmin
             div.content__form__row__btn
-              a(href=`/suggetion/${suggetion._id}/edit`).suggetion-btn 수정하기
+              a(href=`/suggestion/${suggestion._id}/edit`).suggestion-btn 수정하기
     nav
       ul
         li

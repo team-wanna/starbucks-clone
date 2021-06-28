@@ -7,6 +7,7 @@ import flash from 'express-flash';
 import MongoStore from 'connect-mongo';
 import userRouter from './routers/userRouter';
 import globalRouter from './routers/globalRouter';
+import suggestionRouter from './routers/suggestionRouter';
 
 const app = express();
 dotenv.config();
@@ -41,6 +42,7 @@ app.use((req, res, next) => {
 // 라우터
 app.use('/', globalRouter);
 app.use('/user', userRouter);
+app.use('/suggestion', suggestionRouter);
 
 // 서버 연결
 const PORT = process.env.PORT || 3000;

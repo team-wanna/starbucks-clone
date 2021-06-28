@@ -120,11 +120,11 @@ a:hover {
   font-size: var(--font-small);
   color: var(--grey-color);
 }
-.content__suggetion__btn {
+.content__suggestion__btn {
   display: flex;
   justify-content: flex-start;
 }
-.suggetion-btn {
+.suggestion-btn {
   font-weight: bold;
   font-size: var(--font-small);
   color: var(--black-color);
@@ -134,7 +134,7 @@ a:hover {
   margin: 10px 10px 10px 0;
   padding: 10px 20px;
 }
-.suggetion-btn:hover {
+.suggestion-btn:hover {
   cursor: pointer;
   text-decoration: underline;
 }
