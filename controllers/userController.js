@@ -1,6 +1,6 @@
+import bcrypt from 'bcrypt';
 import User from '../models/User';
 import Suggestion from '../models/Suggestion';
-import bcrypt from 'bcrypt';
 
 // Get
 export const output = {
@@ -42,16 +42,12 @@ export const process = {
     // 닉네임 중복 여부도 추가해보기
     const user = await User.findOne({ id });
     if (user) {
-      return res.status(400).render('join', {
-        title: 'join',
-        msg: '이미 사용중인 아이디 입니다.',
-      });
+      req.flash('error', '이미 사용중인 아이디 입니다.');
+      return res.status(400).redirect('/user/join');
     }
     if (pwd !== pwdCheck) {
-      return res.status(400).render('join', {
-        title: 'join',
-        msg: '비밀번호를 올바르게 입력해 주세요.',
-      });
+      req.flash('error', '비밀번호를 올바르게 입력해 주세요.');
+      return res.status(400).redirect('/user/join');
     }
     try {
       const birth = String(year) + String(month) + String(day) + calendar;
@@ -80,17 +76,14 @@ export const process = {
     const { id, pwd } = req.body;
     try {
       const user = await User.findOne({ id });
-      const password = await bcrypt.compareSync(pwd, user.pwd);
       if (!user) {
-        return res.status(400).render('login', {
-          title: 'login',
-          msg: '존재하지 않는 아이디 입니다.',
-        });
-      } else if (!password) {
-        return res.status(400).render('login', {
-          title: 'login',
-          msg: '비밀번호를 확인해 주세요.',
-        });
+        req.flash('error', '존재하지 않는 아이디 입니다.');
+        return res.status(400).redirect('/user/login'); // res.render로 하면 새로고침 시 플래시메세지가 캐시에 남아있습니다. redirect해야 캐시에 잡힌 메세지가 사라집니다!
+      }
+      const password = await bcrypt.compareSync(pwd, user.pwd); // user가 없을시 user.pwd가 undefind되어 에러 발생 ∴user 체크를 먼저 해야함!
+      if (!password) {
+        req.flash('error', '비밀번호를 확인해 주세요.');
+        return res.status(400).redirect('/user/login');
       }
       req.session.user = user;
       return res.redirect('/');

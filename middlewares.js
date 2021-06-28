@@ -1,6 +1,7 @@
 export const member = (req, res, next) => {
   if (!req.session.user) {
-    return res.redirect("/user/login");
+    req.flash('error', '로그인 시 이용 가능합니다.');
+    return res.redirect('/user/login');
   } else {
     return next();
   }
@@ -8,7 +9,7 @@ export const member = (req, res, next) => {
 
 export const stranger = (req, res, next) => {
   if (req.session.user) {
-    return res.redirect("/user/my");
+    return res.redirect('/user/my');
   } else {
     return next();
   }

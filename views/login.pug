@@ -1,7 +1,6 @@
 extends layout
 
 block content
-  script(src="/public/js/login.js", defer) 
   .bg-wrap
     .login-form-container
       .login-form-container__title 로그인
@@ -11,8 +10,8 @@ block content
             span Welcome!
             |  스타벅스커피 코리아에 오신 것을 환영합니다 
           .content__input-container
-            if msg
-              .error=msg
+            if messages.error
+              .error=messages.error
             .input
               input.input__item(type="text", placeholder="아이디를 입력해 주세요.", name="id", required, id="id")
               input.input__item(type="password", placeholder="비밀번호를 입력해 주세요.", name="pwd", required)

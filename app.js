@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import session from 'express-session';
+import flash from 'express-flash';
 import MongoStore from 'connect-mongo';
 import userRouter from './routers/userRouter';
 import globalRouter from './routers/globalRouter';
@@ -14,6 +15,7 @@ import './db';
 // 앱 세팅
 app.use(helmet());
 // app.use(morgan("dev"));
+app.use(flash());
 app.set('view engine', 'pug');
 app.use('/public', express.static('public'));
 app.use(express.json());

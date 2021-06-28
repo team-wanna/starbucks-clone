@@ -130,7 +130,7 @@ header {
 }
 
 .header__toggle__footer {
-  background-image: url("../images/gnb_sub_txbg.jpg");
+  background-image: url('../images/gnb_sub_txbg.jpg');
   width: 100%;
   height: auto;
   padding: 15px 210px;
