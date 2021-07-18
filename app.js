@@ -8,14 +8,14 @@ import MongoStore from 'connect-mongo';
 import userRouter from './routers/userRouter';
 import globalRouter from './routers/globalRouter';
 import suggestionRouter from './routers/suggestionRouter';
+import './db';
 
 const app = express();
 dotenv.config();
-import './db';
 
 // 앱 세팅
 app.use(helmet());
-// app.use(morgan("dev"));
+app.use(morgan('dev'));
 app.use(flash());
 app.set('view engine', 'pug');
 app.use('/public', express.static('public'));
