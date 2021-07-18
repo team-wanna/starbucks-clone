@@ -1,6 +1,6 @@
-import Suggestion from '../models/Suggestion';
-import Answer from '../models/Answer';
-import User from '../models/User';
+import Suggestion from '../models/Suggestion.js';
+import Answer from '../models/Answer.js';
+import User from '../models/User.js';
 
 // Get
 export const output = {

@@ -5,10 +5,10 @@ import morgan from 'morgan';
 import session from 'express-session';
 import flash from 'express-flash';
 import MongoStore from 'connect-mongo';
-import userRouter from './routers/userRouter';
-import globalRouter from './routers/globalRouter';
-import suggestionRouter from './routers/suggestionRouter';
-import './db';
+import userRouter from './routers/userRouter.js';
+import globalRouter from './routers/globalRouter.js';
+import suggestionRouter from './routers/suggestionRouter.js';
+import './db.js';
 
 const app = express();
 dotenv.config();

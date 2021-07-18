@@ -1,6 +1,6 @@
 import express from 'express';
-import { output, process } from '../controllers/userController';
-import { member, stranger } from '../middlewares';
+import { output, process } from '../controllers/userController.js';
+import { member, stranger } from '../middlewares.js';
 
 const router = express.Router();
 

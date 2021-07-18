@@ -1,6 +1,6 @@
 import express from 'express';
-import { member } from '../middlewares';
-import { output, process } from '../controllers/suggestionController';
+import { member } from '../middlewares.js';
+import { output, process } from '../controllers/suggestionController.js';
 
 const suggestionRouter = express.Router();
 

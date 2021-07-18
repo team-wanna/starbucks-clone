@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
-import User from '../models/User';
-import Suggestion from '../models/Suggestion';
+import User from '../models/User.js';
+import Suggestion from '../models/Suggestion.js';
 
 // Get
 export const output = {
