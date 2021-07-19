@@ -1,4 +1,4 @@
-const answerEditBtn = document.querySelector('.suggetion-btn__edit');
+const answerEditBtn = document.querySelector('.suggestion-btn__edit');
 const input = document.getElementById('answer');
 
 answerEditBtn.addEventListener('click', async () => {
@@ -15,5 +15,5 @@ answerEditBtn.addEventListener('click', async () => {
       contents,
     }),
   });
-  window.location.href = `/suggetion/${suggestionId}`;
+  window.location.href = `/suggestion/${suggestionId}`;
 });

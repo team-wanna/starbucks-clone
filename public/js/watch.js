@@ -1,4 +1,4 @@
-const answerSubmitBtn = document.querySelector('.suggetion-btn__answer');
+const answerSubmitBtn = document.querySelector('.suggestion-btn__answer');
 const input = document.getElementById('answer');
 
 answerSubmitBtn.addEventListener('click', async () => {
